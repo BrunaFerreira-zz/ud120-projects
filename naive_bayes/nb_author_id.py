@@ -29,8 +29,12 @@ features_train, features_test, labels_train, labels_test = preprocess()
 ### your code goes here ###
 from sklearn.naive_bayes import GaussianNB
 nb = GaussianNB()
+t0 = time()
 nb.fit(features_train,labels_train)
+print ("Tempo de treinamento:", round(time()-t0, 3), "s")
+t0 = time()
 pred = nb.predict(features_test)
+print ("Tempo de teste:", round(time()-t0, 3), "s")
 acuracia = accuracy_score(labels_test,pred)
 
 print("Acuracia",acuracia)
