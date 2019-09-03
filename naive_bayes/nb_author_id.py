@@ -14,6 +14,7 @@ import sys
 from time import time
 sys.path.append("../tools/")
 from email_preprocess import preprocess
+from sklearn.metrics import accuracy_score
 
 
 ### features_train and features_test are the features for the training
@@ -30,7 +31,9 @@ from sklearn.naive_bayes import GaussianNB
 nb = GaussianNB()
 nb.fit(features_train,labels_train)
 pred = nb.predict(features_test)
+acuracia = accuracy_score(labels_test,pred)
 
+print("Acuracia",acuracia)
 #########################################################
 
 
